@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "node-sass -o css scss -w",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "netlify": "ntl dev"
   },
   "keywords": [],
   "author": "",
