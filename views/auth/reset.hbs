@@ -1,0 +1,31 @@
+<nav class='navbar'></nav>
+
+<!-- hero -->
+<section class='page-hero'>
+  <div class='section-center'>
+    <h3 class='page-hero-title'>Home / {{title}}</h3>
+  </div>
+</section>
+
+<div class='container-auth'>
+  <div class='card-auth'>
+    <h2 class='signIn'>/ Reset</h2>
+    <div class='img-container-auth'></div>
+
+    <form action='/auth/reset' method='POST' class='form-auth'>
+      {{#if error}}
+        <p class='alert'>{{error}}</p>
+      {{/if}}
+      <h4 class='signIn'>forgot password?</h4>
+      <input
+        id='email'
+        class='input-auth'
+        name='email'
+        type='email'
+        placeholder='email'
+        required
+      />
+      <input class='input-auth register-button' type='submit' value='Login' />
+    </form>
+  </div>
+</div>

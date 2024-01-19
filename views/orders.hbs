@@ -1,0 +1,86 @@
+<nav class='navbar page'>
+     <div class='toogle-container'>
+       <p class="userName">{{userName}}
+         <i class="far fa-user"></i>
+       </p>
+        <button class='toggle-cart'>
+          <i class='fas fa-shopping-cart'></i>
+        </button>
+        <span class='cart-item-count'><p>{{totalItems}}</p></span>
+      </div>
+</nav>
+{{!-- cart --}}
+
+<div class='cart-overlay'>
+  <aside class='cart'>
+    <button class='cart-close'>
+      <i class='fas fa-times'></i>
+    </button>
+    <header>
+      <h3 class='text-slanted'>your bag</h3>
+    </header>
+    <!-- cart items -->
+  
+        {{#if itemCard.length}}
+      <div class='cart-items'>
+     {{#each itemCard}}
+        <div class="cart-item-g">
+        <img src='{{imageSmall}}' class='cart-item-img' alt='' />
+        <div class='bag-items'>
+          <div class="desc-item">
+          <h4 class='cart-item-name'>{{name}}</h4>
+          <p class='cart-item-price'>${{price}}.00</p>
+          <button class='cart-item-remove-btn js-remove'  data-id='{{_id}}'>remove <i class="fa fa-trash" aria-hidden="true"></i></button>
+          </div>
+        <div>
+          <p class='cart-item-amount'>{{count}}</p>
+        </div>
+        </div>
+      </div>
+        {{/each}}
+      </div>
+      <!-- footer -->
+      <footer>
+        <h3 class='cart-total text-slanted'>total: ${{priceCard}}.00</h3>
+        <form action="/orders" method='post'>
+        <button class='cart-checkout btn'>checkout</button>
+        </form>
+      </footer>
+  </aside>
+  {{else}}
+    <p>Cart is empty</p>
+  {{/if}}
+</div>
+
+<h1>Orders List</h1>
+{{#if orders.length}}
+  {{#each orders}}
+    <div class='col s6 offset-s3'>
+      <div class='card'>
+        <div class='card-content'>
+          <span class='card-title'>
+            Order number:
+            <small>{{_id}}</small>
+          </span>
+          <p class='date'>{{date}}</p>
+          <p><em>Name: {{user.name}}</em></p>
+          <p>Email: {{user.userId.email}}</p>
+          <ol>
+            {{#each shopItems}}
+              <li>
+                <img src='{{shopItem.imageSmall}}' alt='{{shopItem.name}}' />
+                <p>Item price: ${{shopItem.price}}.00</p>
+                <p>Item name: {{shopItem.name}} (x<strong>{{count}}</strong>)</p> 
+              </li>
+            {{/each}}
+          </ol>
+          <hr />
+
+          <p>Total price: <span class='price'> {{price}}</span></p>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+{{else}}
+  <p>Orders doesn't exist</p>
+{{/if}}

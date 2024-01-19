@@ -1,0 +1,36 @@
+.container-auth {
+  position: relative;
+  top: 10%;
+  left: 0%;
+  @include flexLoyaut;
+}
+.form-auth {
+  width: 20rem;
+}
+.input-auth {
+  color: $clr-grey-5;
+  background: transparent;
+  border: 1px solid $clr-grey-7;
+  padding: 0.5rem 0.75rem;
+  display: inline-block;
+  margin-top: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: $spacing;
+  border-radius: $radius;
+  transition: $transition;
+  &:hover {
+    border: 1px solid $clr-grey-10;
+    color: $clr-grey-4;
+    background: $clr-grey-10;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .container-auth {
+    max-width: 800px;
+    left: 20%;
+  }
+  .form-auth {
+    width: 30rem;
+  }
+}

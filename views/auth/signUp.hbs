@@ -1,0 +1,55 @@
+<nav class='navbar'></nav>
+
+<!-- hero -->
+<section class='page-hero'>
+  <div class='section-center'>
+    <h3 class='page-hero-title'>Home / {{title}}</h3>
+  </div>
+</section>
+
+<div class="container-auth">
+    <div class="card-auth">
+     <h2 class='signIn'> / Sign up</h2>
+     <div class='img-container-auth'></div>
+    <form action="/auth/register" method="POST" class='form-auth' novalidate>
+    {{#if error}}
+  <p class='alert'>{{error}}</p>
+    {{/if}}
+               <input
+              class='input-auth'
+              name='name'
+              type='text'
+              placeholder="user name" 
+               value='{{data.name}}'            
+            />
+      <input
+              id='remail'
+              class='input-auth'
+              name='email'
+              type='email'
+              placeholder="email Address"
+              value='{{data.email}}'       
+      />
+       <input
+              id='rpassword'
+              class='input-auth'
+              name='password'
+              type='password'
+              placeholder="create Password" 
+            />
+
+         <input
+              id='confirm'
+               class='input-auth'
+              name='confirm'
+              type='password'
+               placeholder="confirm password"  
+            />
+            <span class='helper-text' data-error='please, check password'></span>
+      <input class="input-auth register-button" value="Sign up" type='submit'></input>
+       <p class="signup">
+        Already have an account?<a class="toggle" href="/auth/login">Log in.</a>
+      </p>
+    </form>   
+  </div>
+  </div>

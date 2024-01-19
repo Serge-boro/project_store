@@ -1,0 +1,42 @@
+<!-- hero -->
+<section class='hero'>
+  <div class='hero-container'>
+    <h1 class='text-slanted'>rest, relax, unwind</h1>
+    <h3>Embrace your choices</h3>
+  </div>
+  <a href='/products' class='hero-btn'>shop now</a>
+</section>
+
+<!-- featured products -->
+<section class='section featured'>
+  <div class='title'>
+    <h2><span>/</span>featured</h2>
+  </div>
+      <div class='featured-center section-center'>
+  {{#if storeItems.length}}
+    {{#each storeItems}}
+        <article class='product'>
+          <div class='product-container'>
+            <img src='{{imageUrl}}' class='product-img img' alt='{{name}}' />
+            <div class='product-icons'>
+              <a href='/store/{{id}}' class='product-icon'>
+                <i class='fas fa-search'></i>
+              </a>
+              <form action='/products/add' method='post' >
+               <input type='hidden' name='id' value='{{_id}}'>
+               <button type="submit" class='product-cart-btn product-icon'><i class='fas fa-shopping-cart'></i></button>
+               </form>
+            </div>
+          </div>
+          <footer>
+            <p class='product-name'>{{name}}</p>
+            <h4 class='product-price'>${{price}}.00</h4>
+          </footer>
+        </article>
+    {{/each}}
+      </div>
+  {{else}}
+    <h2 class='section-loading'>Loading...</h2>
+  {{/if}}
+  <a href='/products' class='btn'>all products</a>
+</section>

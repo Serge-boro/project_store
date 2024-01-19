@@ -1,0 +1,34 @@
+{
+  "name": "SHOP_STORE_NODE.js_MONGODB_GRAPHQL_JAVASCRIPT",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "node-sass -o css scss -w",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
+    "apollo-server-express": "^3.1.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongodb-session": "^3.1.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "express-session": "^1.16.1",
+    "express-validator": "^6.12.1",
+    "graphql": "^15.5.3",
+    "handlebars": "^4.7.7",
+    "mongoose": "^5.5.3",
+    "node-sass": "^6.0.1",
+    "nodemailer": "^6.6.3",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "path": "^0.12.7"
+  }
+}

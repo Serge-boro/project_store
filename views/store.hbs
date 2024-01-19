@@ -1,0 +1,83 @@
+<nav class='navbar page'>
+       <div class='toogle-container'>
+       <p class="userName">{{userName}}
+         <i class="far fa-user"></i>
+       </p>
+        <button class='toggle-cart'>
+          <i class='fas fa-shopping-cart'></i>
+        </button>
+        <span class='cart-item-count'><p>{{totalItems}}</p></span>
+      </div>
+</nav>
+<div class='cart-overlay'>
+  <aside class='cart'>
+    <button class='cart-close'>
+      <i class='fas fa-times'></i>
+    </button>
+    <header>
+      <h3 class='text-slanted'>your bag</h3>
+    </header>
+    <!-- cart items -->
+    {{#if itemCard.length}}
+    <div class='cart-items'>
+     {{#each itemCard}}
+        <div class="cart-item-g">
+        <img src='{{imageSmall}}' class='cart-item-img' alt='' />
+        <div class='bag-items'>
+          <div class="desc-item">
+          <h4 class='cart-item-name'>{{name}}</h4>
+          <p class='cart-item-price'>${{price}}.00</p>
+          <button class='cart-item-remove-btn js-remove'  data-id='{{_id}}'>remove <i class="fa fa-trash" aria-hidden="true"></i></button>
+          </div>
+        <div>
+          <p class='cart-item-amount'>{{count}}</p>
+        </div>
+        </div>
+      </div>
+        {{/each}}
+      </div>
+      <!-- footer -->
+      <footer>
+        <h3 class='cart-total text-slanted'>total: ${{priceCard}}.00</h3>
+        <button class='cart-checkout btn'>checkout</button>
+      </footer>
+  </aside>
+  {{else}}
+    <p>Cart is empty</p>
+  {{/if}}
+</div>
+<!-- hero -->
+<section class='page-hero'>
+  <div class='section-center'>
+    <h3 class='page-hero-title'>Home / {{title}}</h3>
+  </div>
+</section>
+
+<!-- product info -->
+<section class='single-product'>
+  <div class='section-center single-product-center'>
+    <img
+      src='{{store.imageLargeurl}}'
+      class='single-product-img img'
+      alt='{{name}}'
+    />
+    <article class='single-product-info'>
+      <div>
+        <h2 class='single-product-title'>{{store.name}}</h2>
+        <p class='single-product-company text-slanted'>{{store.company}}</p>
+        <h4 class='product-price'>${{store.price}}.00</h4>
+        <div
+          class='single-product-colors product-color'
+          style='background: {{store.colors}}'
+        ></div>
+        <p class='single-product-desc'>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis
+          quisquam a commodi mollitia explicabo. Dolore, veritatis eligendi
+          commodi voluptatum sint illum, odio nisi aliquid corrupti,
+          consequuntur provident? Ipsum, ea recusandae!
+        </p>
+          <a href="/products"><button class='addToCartBtn btn'>back to store</button></a>
+      </div>
+    </article>
+  </div>
+</section>

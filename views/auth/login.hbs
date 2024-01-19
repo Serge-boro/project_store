@@ -1,0 +1,40 @@
+<nav class='navbar'></nav>
+
+<!-- hero -->
+<section class='page-hero'>
+  <div class='section-center'>
+    <h3 class='page-hero-title'>Home / {{title}}</h3>
+  </div>
+</section>
+
+<div class='container-auth'>
+  <div class='card-auth'>
+    <h2 class='signIn'> / Sign in</h2>
+    <form action='/auth/login' method='POST' class='form-auth'>
+      {{#if loginError}}
+        <p class='alert'>{{loginError}}</p>
+      {{/if}}
+      {{#if registerSuccess}}
+        <p class='success'>{{registerSuccess}}</p>
+      {{/if}}
+      <input
+        type='email'
+        placeholder='user email'
+        name='email'
+        class='input-auth email'
+      />
+      <br />
+      <input
+        type='password'
+        placeholder='user password'
+        name='password'
+        class='input-auth password'
+      />
+      <p class='forget'><a href='/auth/reset'>Forget password?</a></p>
+      <input type='submit' value='Sign in' class='input-auth register-button' />
+      <p class='signup'>
+        don't have an account?<a href='/auth/signUp'>Sign up.</a>
+      </p>
+    </form>
+  </div>
+</div>

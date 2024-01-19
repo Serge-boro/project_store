@@ -1,0 +1,94 @@
+<nav class='navbar page'>
+     <div class='toogle-container'>
+       <p class="userName">{{userName}}
+         <i class="far fa-user"></i>
+       </p>
+        <button class='toggle-cart'>
+          <i class='fas fa-shopping-cart'></i>
+        </button>
+        <span class='cart-item-count'><p>{{totalItems}}</p></span>
+      </div>
+</nav>
+{{!-- cart --}}
+
+<div class='cart-overlay'>
+  <aside class='cart'>
+    <button class='cart-close'>
+      <i class='fas fa-times'></i>
+    </button>
+    <header>
+      <h3 class='text-slanted'>your bag</h3>
+    </header>
+    <!-- cart items -->
+  
+        {{#if itemCard.length}}
+      <div class='cart-items'>
+     {{#each itemCard}}
+        <div class="cart-item-g">
+        <img src='{{imageSmall}}' class='cart-item-img' alt='' />
+        <div class='bag-items'>
+          <div class="desc-item">
+          <h4 class='cart-item-name'>{{name}}</h4>
+          <p class='cart-item-price'>${{price}}.00</p>
+          <button class='cart-item-remove-btn js-remove'  data-id='{{_id}}'>remove <i class="fa fa-trash" aria-hidden="true"></i></button>
+          </div>
+        <div>
+          <p class='cart-item-amount'>{{count}}</p>
+        </div>
+        </div>
+      </div>
+        {{/each}}
+      </div>
+      <!-- footer -->
+      <footer>
+        <h3 class='cart-total text-slanted'>total: ${{priceCard}}.00</h3>
+        <form action="/orders" method='post'>
+        <button class='cart-checkout btn'>checkout</button>
+        </form>
+      </footer>
+  </aside>
+  {{else}}
+    <p>Cart is empty</p>
+  {{/if}}
+</div>
+{{!-- end cart --}}
+<!-- hero -->
+<section class='page-hero'>
+  <div class='section-center'>
+    <h3 class='page-hero-title'>Home / {{title}}</h3>
+  </div>
+</section>
+
+<!-- products -->
+<section class='products'>
+  <div class='middle'></div>
+  <!-- products -->
+      <div class='products-container'>
+  {{#if storeItems.length}}
+    {{#each storeItems}}
+        <article class='product'>
+          <div class='product-container'>
+            <img src='{{imageUrl}}' class='product-img img' alt='{{name}}' />
+            <div class='product-icons'>
+              <a href='/store/{{id}}' class='product-icon' target='_blank'>
+                <i class='fas fa-search'></i>
+              </a>
+               <form action='/products/add' method='post' >
+               <input type='hidden' name='id' value='{{_id}}'>
+               <button type="submit" class='product-cart-btn product-icon'><i class='fas fa-shopping-cart'></i></button>
+               </form>
+            </div>
+          </div>
+          <footer>
+            <p class='product-name'>{{name}}</p>
+            <h4 class='product-price'>${{price}}.00</h4>
+          </footer>
+        </article>
+    {{/each}}
+      </div>
+  {{else}}
+    <div class='page-loading'>
+      <h2>Loading...</h2>
+    </div>
+  {{/if}}
+</section>

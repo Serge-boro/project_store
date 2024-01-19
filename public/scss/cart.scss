@@ -1,0 +1,116 @@
+.cart-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  transition: $transition;
+  opacity: 0;
+  z-index: -1;
+  @include fixedPos;
+  @extend %fullSpace;
+
+  &.show {
+    opacity: 1;
+    z-index: 100;
+  }
+}
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  max-width: 400px;
+  background: $clr-grey-10;
+  padding: 3rem 1rem 0 1rem;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  transition: $transition;
+  transform: translateX(100%);
+  overflow: scroll;
+  @extend %fullSpace;
+
+  .show & {
+    transform: translateX(0);
+  }
+  &-close {
+    font-size: 2rem;
+    background: transparent;
+    border-color: transparent;
+    color: $clr-grey-5;
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    cursor: pointer;
+  }
+  & header {
+    text-align: center;
+  }
+  & header h3 {
+    font-weight: 500;
+  }
+  &-total {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+  &-checkout {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+  }
+  &-items {
+    @extend %columnFlex;
+  }
+}
+
+.cart-items {
+  @extend %columnFlex;
+}
+.cart-item {
+  &-g {
+    margin-top: 2rem;
+    display: flex;
+  }
+  &-img {
+    width: 75px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: $radius;
+  }
+  &-name {
+    margin-bottom: 0.15rem;
+  }
+  &-price {
+    margin-bottom: 0;
+    font-size: 0.75rem;
+    color: var(--clr-grey-3);
+  }
+  &-remove-btn {
+    background: transparent;
+    border-color: transparent;
+    color: $clr-grey-5;
+    letter-spacing: $spacing;
+    cursor: pointer;
+  }
+  &-amount {
+    position: absolute;
+    right: 3rem;
+    font-size: 3rem;
+    color: $clr-grey-3;
+    line-height: 1;
+  }
+}
+.bag-items {
+  display: flex;
+  font-family: 'Kaushan Script', cursive;
+}
+.desc-item {
+  margin: -1rem 2rem;
+}
+
+.cart-item-increase-btn,
+.cart-item-decrease-btn {
+  background: transparent;
+  border-color: transparent;
+  color: $clr-primary-5;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.25rem;
+}
